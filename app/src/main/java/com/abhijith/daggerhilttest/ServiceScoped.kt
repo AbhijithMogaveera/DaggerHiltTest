@@ -3,20 +3,20 @@ package com.abhijith.daggerhilttest
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LifecycleService
-import com.abhijith.daggerhilttest.di.sampleclass.ApplicationComponentData
-import com.abhijith.daggerhilttest.di.sampleclass.ServiceComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.ApplicationModuleData
+import com.abhijith.daggerhilttest.di.sampleclass.ServiceModuleData
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class Service : LifecycleService() {
+class ServiceScoped : LifecycleService() {
 
     @Inject
-    lateinit var scd:ServiceComponentData;
+    lateinit var scd:ServiceModuleData;
 
     @Inject
-    lateinit var acd: ApplicationComponentData
+    lateinit var acd: ApplicationModuleData
 
     @SuppressLint("LogNotTimber")
     override fun onCreate() {

@@ -1,3 +1,3 @@
 package com.abhijith.daggerhilttest.di.sampleclass
 
-class ViewComponentData (val from:String)
+class ActivityRetainedModuleData(val from:String)

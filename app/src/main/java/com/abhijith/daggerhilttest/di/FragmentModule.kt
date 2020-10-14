@@ -1,6 +1,6 @@
 package com.abhijith.daggerhilttest.di
 
-import com.abhijith.daggerhilttest.di.sampleclass.FragmentComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.FragmentModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,9 +11,9 @@ import kotlin.random.nextInt
 
 @Module
 @InstallIn(FragmentComponent::class)
-class FragmentComponent {
+class FragmentModule {
 
     @FragmentScoped
     @Provides
-    fun begin():FragmentComponentData= FragmentComponentData("Ejecting from----------FragmentComponent #${Random.nextInt(1..10)}")
+    fun begin():FragmentModuleData= FragmentModuleData("Ejecting from----------FragmentComponent #${Random.nextInt(1..10)}")
 }

@@ -4,23 +4,23 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.abhijith.daggerhilttest.di.sampleclass.ActivityComponentData
-import com.abhijith.daggerhilttest.di.sampleclass.ApplicationComponentData
-import com.abhijith.daggerhilttest.di.sampleclass.FragmentComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.ActivityModuleData
+import com.abhijith.daggerhilttest.di.sampleclass.ApplicationModuleData
+import com.abhijith.daggerhilttest.di.sampleclass.FragmentModuleData
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class Fragment : Fragment(R.layout.fragment_test_frament) {
+class FragmentScoped : Fragment(R.layout.fragment_test_frament) {
 
     @Inject
-    lateinit var acd: ApplicationComponentData
+    lateinit var acd: ApplicationModuleData
 
     @Inject
-    lateinit var atcd: ActivityComponentData
+    lateinit var atcd: ActivityModuleData
 
     @Inject
-    lateinit var fcd:FragmentComponentData
+    lateinit var fcd: FragmentModuleData
 
     @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +29,8 @@ class Fragment : Fragment(R.layout.fragment_test_frament) {
         Log.e("AbhiTestFragment",acd.from)
         Log.e("AbhiTestFragment",atcd.from)
         Log.e("AbhiTestFragment",fcd.from)
+//        Btn_fragment(this.requireContext()).hello()
         onDestroy()
     }
+
 }

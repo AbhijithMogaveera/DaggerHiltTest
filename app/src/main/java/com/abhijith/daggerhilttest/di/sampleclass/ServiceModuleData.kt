@@ -1,3 +1,3 @@
 package com.abhijith.daggerhilttest.di.sampleclass
 
-class ActivityComponentData(val from:String)
+class ServiceModuleData(val from:String)

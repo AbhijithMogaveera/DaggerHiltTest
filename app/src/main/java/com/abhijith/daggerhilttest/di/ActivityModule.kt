@@ -1,6 +1,6 @@
 package com.abhijith.daggerhilttest.di
 
-import com.abhijith.daggerhilttest.di.sampleclass.ActivityComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.ActivityModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,9 +11,9 @@ import kotlin.random.nextInt
 
 @Module
 @InstallIn(ActivityComponent::class)
-object ActivityComponent {
+object ActivityModule {
 
     @Provides
     @ActivityScoped
-    fun begin():ActivityComponentData = ActivityComponentData("Ejecting from----------ActivityComponent #${Random.nextInt(1..10)}")
+    fun begin():ActivityModuleData = ActivityModuleData("Ejecting from----------ActivityComponent #${Random.nextInt(1..10)}")
 }

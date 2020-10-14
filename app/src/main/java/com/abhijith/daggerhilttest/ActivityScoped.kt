@@ -5,24 +5,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.abhijith.daggerhilttest.di.sampleclass.ActivityComponentData
-import com.abhijith.daggerhilttest.di.sampleclass.ActivityRetainedComponentData
-import com.abhijith.daggerhilttest.di.sampleclass.ApplicationComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.ActivityModuleData
+import com.abhijith.daggerhilttest.di.sampleclass.ActivityRetainedModuleData
+import com.abhijith.daggerhilttest.di.sampleclass.ApplicationModuleData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class Activity : AppCompatActivity() {
+class ActivityScoped : AppCompatActivity() {
 
     @Inject
-    lateinit var acd:ApplicationComponentData
+    lateinit var acd:ApplicationModuleData
 
     @Inject
-    lateinit var atcd:ActivityComponentData
+    lateinit var atcd:ActivityModuleData
 
     @Inject
-    lateinit var strcd:ActivityRetainedComponentData
+    lateinit var strcd:ActivityRetainedModuleData
 
     @SuppressLint("LogNotTimber")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,14 +34,14 @@ class Activity : AppCompatActivity() {
         Log.e("AbhiMainActivity",atcd.from)
         Log.e("AbhiMainActivity",strcd.from)
         btn_start_service.setOnClickListener {
-            Intent(this, Service::class.java).also {
+            Intent(this, ServiceScoped::class.java).also {
                 startService(it)
             }
         }
 
-        supportFragmentManager.beginTransaction().replace(R.id.fl_fragment_container_layout,Fragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fl_fragment_container_layout,FragmentScoped()).commit()
         fl_fragment_container_layout
 
-        Btn(this)
+        ViewScoped(this).hello()
     }
 }

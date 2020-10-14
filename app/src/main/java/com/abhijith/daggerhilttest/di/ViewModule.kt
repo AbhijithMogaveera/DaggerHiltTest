@@ -1,6 +1,6 @@
 package com.abhijith.daggerhilttest.di
 
-import com.abhijith.daggerhilttest.di.sampleclass.ViewComponentData
+import com.abhijith.daggerhilttest.di.sampleclass.ViewModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,8 +11,8 @@ import kotlin.random.nextInt
 
 @Module
 @InstallIn(ViewComponent::class)
-class _ViewComponent{
+class ViewModule{
     @Provides
     @ViewScoped
-    fun begin() = ViewComponentData("Ejecting from----------ViewComponentData #${Random.nextInt(1..10)}")
+    fun begin() = ViewModuleData("Ejecting from----------ViewComponentData #${Random.nextInt(1..10)}")
 }
