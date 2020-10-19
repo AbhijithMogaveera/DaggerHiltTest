@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.ActivityRetainedModuleData
+import com.abhijith.daggerhilttest.consumingFromActivityRetainedModule
+import com.abhijith.daggerhilttest.module.data.ActivityRetainedModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +16,9 @@ object ActivityRetainedModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun begin():ActivityRetainedModuleData
-            = ActivityRetainedModuleData("Ejecting from----------ActivityRetainedComponent #${Random.nextInt(1..10)}")
+    fun begin():ActivityRetainedModuleData {
+        return ActivityRetainedModuleData(
+            consumingFromActivityRetainedModule
+        )
+    }
 }

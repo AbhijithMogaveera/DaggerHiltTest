@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.ServiceModuleData
+import com.abhijith.daggerhilttest.consumingFromServiceComponent
+import com.abhijith.daggerhilttest.module.data.ServiceModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,5 +16,5 @@ object ServiceModule {
 
     @Provides
     @ServiceScoped
-    fun begin():ServiceModuleData= ServiceModuleData("Ejecting from----------ServiceComponent #${Random.nextInt(1..10)}")
+    fun begin():ServiceModuleData= ServiceModuleData(consumingFromServiceComponent)
 }

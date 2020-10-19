@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.ViewWithFragmentModuleData
+import com.abhijith.daggerhilttest.consumingFromViewWithFragmentComponent
+import com.abhijith.daggerhilttest.module.data.ViewWithFragmentModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,9 +17,7 @@ object ViewWithFragmentModule {
     @Provides
     @ViewScoped
     fun begin(): ViewWithFragmentModuleData = ViewWithFragmentModuleData(
-        "Ejecting from----------ViewWithFragmentComponent #${
-            Random.nextInt(1..10)
-        }"
+        consumingFromViewWithFragmentComponent
     )
 
 }

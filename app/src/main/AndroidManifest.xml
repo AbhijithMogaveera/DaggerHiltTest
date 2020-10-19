@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityRetained"></activity>
         <activity android:name=".ActivityScoped">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +21,13 @@
         <service
             android:name=".ServiceScoped"
             android:foregroundServiceType="location" />
+        <receiver
+            android:name=".DownloadCancelReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="nn"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

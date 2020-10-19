@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.ApplicationModuleData
+import com.abhijith.daggerhilttest.consumingFromApplicationComponent
+import com.abhijith.daggerhilttest.module.data.ApplicationModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,5 +16,7 @@ object ApplicationModule {
 
     @Singleton
     @Provides
-    fun begin():ApplicationModuleData= ApplicationModuleData("Ejecting from----------ApplicationComponent #${Random.nextInt(1..10)}")
+    fun begin():ApplicationModuleData {
+        return ApplicationModuleData(consumingFromApplicationComponent)
+    }
 }

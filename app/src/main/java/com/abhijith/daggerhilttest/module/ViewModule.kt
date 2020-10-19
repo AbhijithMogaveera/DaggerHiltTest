@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.ViewModuleData
+import com.abhijith.daggerhilttest.consumingFromViewComponent
+import com.abhijith.daggerhilttest.module.data.ViewModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,5 +15,5 @@ import kotlin.random.nextInt
 class ViewModule{
     @Provides
     @ViewScoped
-    fun begin() = ViewModuleData("Ejecting from----------ViewComponentData #${Random.nextInt(1..10)}")
+    fun begin() = ViewModuleData(consumingFromViewComponent)
 }

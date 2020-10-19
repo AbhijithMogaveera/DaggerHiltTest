@@ -1,6 +1,7 @@
-package com.abhijith.daggerhilttest.di
+package com.abhijith.daggerhilttest.module
 
-import com.abhijith.daggerhilttest.di.sampleclass.FragmentModuleData
+import com.abhijith.daggerhilttest.consumingFromFragmentComponent
+import com.abhijith.daggerhilttest.module.data.FragmentModuleData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,5 +16,5 @@ class FragmentModule {
 
     @FragmentScoped
     @Provides
-    fun begin():FragmentModuleData= FragmentModuleData("Ejecting from----------FragmentComponent #${Random.nextInt(1..10)}")
+    fun begin():FragmentModuleData= FragmentModuleData(consumingFromFragmentComponent)
 }
